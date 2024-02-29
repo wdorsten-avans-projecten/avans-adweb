@@ -1,0 +1,9 @@
+<div class="progress">
+	<div
+		class="progress-bar progress-bar-striped progress-bar-animated"
+		[class]="_sumTransactions > _maxBudget ? 'bg-danger' : 'bg-success'"
+		[style.width.%]="(_sumTransactions / _maxBudget) * 100"
+	>
+		€{{ _sumTransactions }} / €{{ _maxBudget }}
+	</div>
+</div>

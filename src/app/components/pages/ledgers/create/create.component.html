@@ -1,0 +1,13 @@
+<div class="row flex-nowrap align-items-center mb-2">
+	<div class="input-group col">
+		<input type="text" placeholder="Titel" class="form-control" [(ngModel)]="this.title" />
+	</div>
+	<div class="input-group col">
+		<input type="text" placeholder="Beschrijving" class="form-control" [(ngModel)]="this.description" />
+	</div>
+	<div class="col-auto">
+		<button type="button" class="btn btn-success" (click)="onFormSubmit()">
+			<fa-icon [icon]="faCheckCircle" />
+		</button>
+	</div>
+</div>

@@ -1,0 +1,17 @@
+<h5>Account aanmaken</h5>
+<div class="alert alert-danger alert-dismissible" *ngIf="message">
+	Check je gebruikersgegevens. <button type="button" class="btn-close" (click)="message = undefined"></button>
+</div>
+<div class="form-group d-flex flex-column">
+	<label for="email">Emailadres</label>
+	<input class="form-control w-100" type="email" id="email" [(ngModel)]="email" />
+</div>
+<div class="form-group d-flex flex-column">
+	<label for="password">Wachtwoord</label>
+	<input class="form-control w-100" type="password" id="password" [(ngModel)]="password" />
+</div>
+<div class="form-group d-flex flex-column">
+	<label for="passwordConfirm">Wachtwoord bevestigen</label>
+	<input class="form-control w-100" type="password" id="passwordConfirm" [(ngModel)]="passwordConfirm" />
+</div>
+<button type="button" class="btn btn-success mt-2" (click)="registerHandler()"><fa-icon [icon]="faUserPlus" /></button>

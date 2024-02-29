@@ -1,0 +1,46 @@
+<div class="d-flex justify-content-between align-items-center">
+	<span *ngIf="this.filter; then archiveHeader; else ledgerHeader"></span>
+	<ng-template #ledgerHeader><h3>Huishoudboekjes</h3></ng-template>
+	<ng-template #archiveHeader><h3>Archief</h3></ng-template>
+	<div class="btn-group">
+		<button class="btn btn-dark" type="button" (click)="toggleFilter()">
+			<fa-icon [icon]="faArchive" />
+		</button>
+		<button
+			class="btn btn-success"
+			type="button"
+			data-bs-toggle="collapse"
+			data-bs-target="#createLedger"
+			aria-expanded="false"
+			aria-controls="createLedger"
+		>
+			<fa-icon [icon]="faPlusCircle" />
+		</button>
+	</div>
+</div>
+<div class="collapse" id="createLedger">
+	<ledger-create />
+</div>
+<table class="table table-dark table-striped p-2">
+	<thead class="bg-dark text-center">
+		<th class="p-2 fw-bold col" scope="col">#</th>
+		<th class="p-2 col" scope="col">Titel</th>
+		<th class="p-2 col" scope="col">Beschrijving</th>
+		<th class="p-2 col" scope="col" *ngIf="this.filter">Acties</th>
+	</thead>
+	<tbody class="text-center">
+		<tr
+			*ngFor="let ledger of this.filteredLedgers; let i = index"
+			[routerLink]="!this.filter ? ['ledgers/' + ledger.id] : []"
+		>
+			<td class="p-2 fw-bold col-auto">{{ i + 1 }}</td>
+			<td class="p-2 col-auto">{{ ledger.title }}</td>
+			<td class="p-2 col-auto">{{ ledger.description }}</td>
+			<td class="p-2 col-auto" *ngIf="this.filter">
+				<button class="btn btn-success" (click)="unArchiveLedger(ledger.id!)">
+					<fa-icon [icon]="faArchive" />
+				</button>
+			</td>
+		</tr>
+	</tbody>
+</table>

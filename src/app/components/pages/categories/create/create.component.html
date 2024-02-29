@@ -1,0 +1,17 @@
+<div class="collapse" id="createCategory">
+	<div class="d-flex flex-row flex-nowrap gap-1 mb-2">
+		<div class="input-group col">
+			<input type="text" class="form-control" placeholder="Naam" [(ngModel)]="this.name" />
+		</div>
+		<div class="input-group col">
+			<span class="input-group-text" id="sum-prefix"><fa-icon [icon]="faEuroSign" /></span>
+			<input type="number" step=".01" class="form-control" placeholder="Budget" [(ngModel)]="this.maxBudget" />
+		</div>
+		<div class="input-group col">
+			<input type="date" class="form-control" placeholder="Einddatum" [(ngModel)]="this.endDate" />
+		</div>
+		<div class="col-auto">
+			<button class="btn btn-success" (click)="onFormSubmit()"><fa-icon [icon]="faCheckCircle" /></button>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,43 @@
+<div class="modal fade" tabindex="-1" [id]="'editmodal_' + this.transaction!.id" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">Aanpassen van transactie met ID {{ this.transaction!.id }}</h5>
+			</div>
+			<div class="modal-body">
+				<div class="input-group flex-column mb-2">
+					<label for="sum">Bedrag in euro's</label>
+					<input
+						type="number"
+						id="sum"
+						step=".01"
+						class="w-100 form-control rounded"
+						[(ngModel)]="sum"
+						aria-describedby="sumHelp"
+					/>
+					<small id="sumHelp" class="form-text text-muted"
+						>Positief getal voor inkomst, negatief voor uitgave.</small
+					>
+				</div>
+				<div class="input-group flex-column">
+					<label for="date">Datum van transactie</label>
+					<input
+						type="date"
+						id="date"
+						class="form-control w-100 rounded"
+						placeholder="Datum van uitgave"
+						[(ngModel)]="date"
+					/>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+					<fa-icon [icon]="faTimes" />
+				</button>
+				<button type="button" class="btn btn-success" (click)="updateTransaction()" data-bs-dismiss="modal">
+					<fa-icon [icon]="faSave" />
+				</button>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,9 @@
+<div class="container">
+	<ng-template *ngIf="this.currentUser === null; then authComponent; else ledgerComponent" />
+	<ng-template #authComponent>
+		<auth-index />
+	</ng-template>
+	<ng-template #ledgerComponent>
+		<ledger-index />
+	</ng-template>
+</div>

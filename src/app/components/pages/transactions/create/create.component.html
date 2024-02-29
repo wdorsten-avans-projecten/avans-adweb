@@ -1,0 +1,12 @@
+<div class="d-flex flex-row flex-nowrap mb-2 gap-1">
+	<div class="input-group col">
+		<span class="input-group-text" id="sum-prefix"><fa-icon [icon]="faEuroSign" /></span>
+		<input type="number" step=".01" class="form-control" placeholder="Bedrag in euro's" [(ngModel)]="this.sum" />
+	</div>
+	<div class="input-group col">
+		<input type="date" class="form-control" placeholder="Datum van transactie" [(ngModel)]="this.date" />
+	</div>
+	<div class="col-auto">
+		<button class="btn btn-success" (click)="onFormSubmit()"><fa-icon [icon]="faCheckCircle" /></button>
+	</div>
+</div>

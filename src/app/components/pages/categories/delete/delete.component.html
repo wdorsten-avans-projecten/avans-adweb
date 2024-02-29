@@ -1,0 +1,21 @@
+<div class="modal fade" tabindex="-1" id="deleteCategory" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title"><fa-icon [icon]="faExclamationTriangle" /> Waarschuwing!</h5>
+			</div>
+			<div class="modal-body d-flex flex-column">
+				<span>Je staat op het punt om de categorie {{ this.categoryName }} te verwijderen.</span>
+				<span class="text-danger fw-semibold">Dit kan NIET ongedaan worden.</span>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+					<fa-icon [icon]="faTimesCircle" />
+				</button>
+				<button type="button" class="btn btn-danger" (click)="deleteAction()" data-bs-dismiss="modal">
+					<fa-icon [icon]="faTrash" />
+				</button>
+			</div>
+		</div>
+	</div>
+</div>

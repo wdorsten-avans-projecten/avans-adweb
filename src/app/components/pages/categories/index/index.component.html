@@ -1,0 +1,48 @@
+<div class="d-flex justify-content-between align-items-center mb-2">
+	<h4>Categorieën</h4>
+	<div class="btn-group">
+		<button
+			*ngIf="this.selectedCategory"
+			class="btn btn-danger text-white"
+			type="button"
+			data-bs-toggle="modal"
+			data-bs-target="#deleteCategory"
+			aria-expanded="false"
+			aria-controls="deleteCategory"
+		>
+			<fa-icon [icon]="faTrash" />
+		</button>
+		<button
+			*ngIf="this.selectedCategory"
+			class="btn btn-warning text-white"
+			type="button"
+			data-bs-toggle="modal"
+			data-bs-target="#editCategory"
+			aria-expanded="false"
+			aria-controls="editCategory"
+		>
+			<fa-icon [icon]="faEdit" />
+		</button>
+		<button
+			class="btn btn-success"
+			type="button"
+			data-bs-toggle="collapse"
+			data-bs-target="#createCategory"
+			aria-expanded="false"
+			aria-controls="createCategory"
+		>
+			<fa-icon [icon]="faPlusCircle" />
+		</button>
+	</div>
+</div>
+<category-create [ledgerId]="this.ledgerId" />
+<select class="form-select form-select-lg mb-2" [(ngModel)]="selectedCategory">
+	<option value="undefined" selected hidden>-- Categorieën --</option>
+	<option *ngFor="let cat of this.categories" value="{{ cat.id }}">
+		{{ cat.name }}
+	</option>
+</select>
+<progressbar *ngIf="this.selectedCategory" [categoryId]="this.selectedCategory" />
+<category-edit *ngIf="this.selectedCategory" [categoryId]="this.selectedCategory" />
+<category-delete *ngIf="this.selectedCategory" [categoryId]="this.selectedCategory" />
+<transaction-index *ngIf="this.selectedCategory" [categoryId]="this.selectedCategory" />

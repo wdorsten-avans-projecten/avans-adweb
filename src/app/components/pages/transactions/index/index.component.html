@@ -1,0 +1,38 @@
+<div class="d-flex justify-content-between align-items-center my-2">
+	<h4>Transacties</h4>
+	<button
+		class="btn btn-success"
+		type="button"
+		data-bs-toggle="collapse"
+		data-bs-target="#createTransaction"
+		aria-expanded="false"
+		aria-controls="createTransaction"
+	>
+		<fa-icon [icon]="faPlusCircle" />
+	</button>
+</div>
+<div class="collapse" id="createTransaction">
+	<transaction-create [categoryId]="this.selectedCategoryId" />
+</div>
+<table class="table table-dark table-striped p-2">
+	<thead class="bg-dark text-center">
+		<th class="p-2 fw-bold col-auto" scope="col">#</th>
+		<th class="p-2 col" scope="col">Bedrag</th>
+		<th class="p-2 col" scope="col">Datum</th>
+		<th class="p-2 col-auto" scope="col">Acties</th>
+	</thead>
+	<tbody class="text-center">
+		<tr *ngFor="let transaction of this.filteredTransactions; let i = index" class="align-items-center">
+			<td scope="row" class="fw-semibold">{{ i + 1 }}</td>
+			<td class="text-center">{{ transaction.sum }}€</td>
+			<td class="text-center">{{ transaction.date }}</td>
+			<td class="w-25 text-center">
+				<div class="btn-group">
+					<button type="button" class="btn btn-danger" (click)="deleteTransaction(transaction.id!)">
+						<fa-icon [icon]="faTrash" />
+					</button>
+				</div>
+			</td>
+		</tr>
+	</tbody>
+</table>

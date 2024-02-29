@@ -1,0 +1,12 @@
+{
+	"hosting": {
+		"public": "dist/adweb-2223-ftselishchev-wdorsten",
+		"ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+		"rewrites": [
+			{
+				"source": "**",
+				"destination": "/index.html"
+			}
+		]
+	}
+}

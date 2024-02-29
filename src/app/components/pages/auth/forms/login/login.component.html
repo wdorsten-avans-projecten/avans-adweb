@@ -1,0 +1,15 @@
+<h5>Inloggen</h5>
+<div class="alert alert-danger alert-dismissible" *ngIf="message">
+	{{ this.message }}<button type="button" class="btn-close" (click)="message = undefined"></button>
+</div>
+<div class="form-group d-flex flex-column">
+	<label for="email">Emailadres</label>
+	<input class="form-control w-100" type="email" id="email" [(ngModel)]="email" />
+</div>
+<div class="form-group d-flex flex-column">
+	<label for="password">Wachtwoord</label>
+	<input class="form-control w-100" type="password" id="password" [(ngModel)]="password" />
+</div>
+<button type="button" class="btn btn-success mt-2" data-bs-dismiss="modal" aria-label="Login" (click)="loginHandler()">
+	<fa-icon [icon]="faSignInAlt" />
+</button>

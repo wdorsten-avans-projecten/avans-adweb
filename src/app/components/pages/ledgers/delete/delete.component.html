@@ -1,0 +1,23 @@
+<div class="modal fade" tabindex="-1" id="archiveLedger" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title"><fa-icon [icon]="faExclamationTriangle" /> Waarschuwing!</h5>
+			</div>
+			<div class="modal-body d-flex flex-column">
+				<span>Je staat op het punt om het huishoudboekje "{{ this.ledger!.title }}" te archiveren.</span>
+				<span class="text-danger fw-semibold">In het archief kan dit ongedaan worden gemaakt.</span>
+			</div>
+			<div class="modal-footer">
+				<div class="btn-group">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+						<fa-icon [icon]="faTimes" />
+					</button>
+					<button type="button" class="btn btn-danger" (click)="archiveLedger()" data-bs-dismiss="modal">
+						<fa-icon [icon]="faArchive" />
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

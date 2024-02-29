@@ -1,0 +1,34 @@
+<div *ngIf="this.ledger; then definedTemplate; else undefinedTemplate"></div>
+<ng-template #undefinedTemplate>
+	<h1 class="d-flex align-items-center justify-content-around">
+		<fa-icon [icon]="faSpinner" />
+	</h1>
+</ng-template>
+<ng-template #definedTemplate>
+	<ledger-delete [ledger]="this.ledger!" />
+	<ledger-edit [ledger]="this.ledger!" />
+	<div class="container">
+		<div class="row flex-nowrap justify-content-between">
+			<div class="col-auto">
+				<h1>{{ this.ledger!.title }}</h1>
+				<h2>{{ this.ledger!.description }}</h2>
+			</div>
+			<div class="btn-group w-auto h-25">
+				<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#archiveLedger">
+					<fa-icon [icon]="faArchive" />
+				</button>
+				<button
+					type="button"
+					class="btn btn-warning text-white"
+					data-bs-toggle="modal"
+					data-bs-target="#editLedger"
+				>
+					<fa-icon [icon]="faEdit" />
+				</button>
+			</div>
+		</div>
+		<div class="row">
+			<category-index [ledgerId]="this.ledger!.id!" />
+		</div>
+	</div>
+</ng-template>

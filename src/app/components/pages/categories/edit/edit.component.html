@@ -1,0 +1,37 @@
+<div class="modal fade" tabindex="-1" id="editCategory" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content" *ngIf="this.category">
+			<div class="modal-header">
+				<h5 class="modal-title">Aanpassen van categorie {{ this.category.name }}</h5>
+			</div>
+			<div class="modal-body">
+				<div class="input-group flex-column mb-2">
+					<label>Naam</label>
+					<input type="text" class="w-100 form-control rounded" [(ngModel)]="name" />
+				</div>
+				<div class="input-group flex-column mb-2">
+					<label>Bedrag in euro's</label>
+					<input type="number" step=".01" class="w-100 form-control rounded" [(ngModel)]="maxBudget" />
+				</div>
+				<div class="input-group flex-column">
+					<label>Datum van transactie</label>
+					<input
+						type="date"
+						id="date"
+						class="form-control w-100 rounded"
+						placeholder="Datum van uitgave"
+						[(ngModel)]="endDate"
+					/>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+					<fa-icon [icon]="faTimesCircle" />
+				</button>
+				<button type="button" class="btn btn-success" (click)="onFormSubmit()" data-bs-dismiss="modal">
+					<fa-icon [icon]="faSave" />
+				</button>
+			</div>
+		</div>
+	</div>
+</div>

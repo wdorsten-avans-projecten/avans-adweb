@@ -1,0 +1,35 @@
+<div class="modal fade" tabindex="-1" id="editLedger" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">Aanpassen van huishoudboekje {{ this.ledger!.title }}</h5>
+			</div>
+			<div class="modal-body">
+				<div class="input-group flex-column mb-2">
+					<label for="title">Titel</label>
+					<input
+						type="text"
+						id="title"
+						class="w-100 form-control rounded"
+						[(ngModel)]="title"
+						aria-describedby="sumHelp"
+					/>
+				</div>
+				<div class="input-group flex-column">
+					<label for="description">Beschrijving</label>
+					<input type="text" id="description" class="form-control w-100 rounded" [(ngModel)]="description" />
+				</div>
+			</div>
+			<div class="modal-footer">
+				<div class="btn-group">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+						<fa-icon [icon]="faTimes" />
+					</button>
+					<button type="button" class="btn btn-success" (click)="updateLedger()" data-bs-dismiss="modal">
+						<fa-icon [icon]="faSave" />
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

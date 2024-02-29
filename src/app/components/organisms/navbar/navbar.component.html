@@ -1,0 +1,10 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark p-2 mb-2">
+	<a class="navbar-brand" routerLink="/"> <fa-icon [icon]="faBookOpen" /> Booker </a>
+	<span class="me-auto"></span>
+	<div class="d-flex" *ngIf="this.currentUser !== null">
+		<span class="text-white m-2" *ngIf="email !== null">Ingelogd als {{ this.email }}</span>
+		<button type="button" class="btn btn-danger" (click)="signOutHandler()" #signOutButton>
+			<fa-icon [icon]="faSignOutAlt" />
+		</button>
+	</div>
+</nav>

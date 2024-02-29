@@ -1,0 +1,7 @@
+<div class="d-flex flex-column">
+	<auth-login *ngIf="!register" />
+	<auth-register *ngIf="register" />
+	<span class="my-2" (click)="toggleRegister()">
+		<small> {{ this.message }} <fa-icon [icon]="faArrowRight" /> </small>
+	</span>
+</div>
